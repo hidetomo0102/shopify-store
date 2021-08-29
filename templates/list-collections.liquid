@@ -1,0 +1,59 @@
+<section
+  class="container p-6 mx-auto animsition"
+  data-animsition-in-class="fade-in-right-sm"
+  data-animsition-in-duration="1000"
+>
+  <h1
+    class="
+      font-serif
+      text-3xl
+      font-semibold
+      text-center text-gray-700
+      py-12
+      md:text-4xl
+    "
+  >
+    Collections
+  </h1>
+  <div
+    class="
+      grid grid-cols-1
+      md:grid-cols-2
+      space-y-16
+      md:space-y-0
+      mx-auto
+      items-center
+    "
+  >
+    {% for collection in collections %} {% unless collection.handle ==
+    'frontpage' %} {% capture collection_title %}{{
+      collection.title | escape
+    }}{% endcapture %}
+    <div
+      class="
+        transform
+        motion-safe:hover:scale-105
+        duration-700
+        max-w-md
+        mx-auto
+      "
+    >
+      <a href="{{ collection.url }}">
+        {% if collection.image %} <img class="inline-block lg:h-72 md:h-56
+        sm:h-80 h-48" src="{{ collection.image | img_url: "master" }}" alt="{{
+          collection.title
+        }}"> {% endif %}
+      </a>
+      <div class="flex justify-between py-2">
+        <h2 class="font-serif text-xl md:text-2xl font-semibold text-gray-800">
+          {{ collection.title }}
+        </h2>
+        <p class="text-gray-600 font-semibold font-serif">
+          {% assign count = collection.products_count %} {{ count }} item{% if
+          count > 1 %}s{% endif %}
+        </p>
+      </div>
+    </div>
+    {% endunless %} {% endfor %}
+  </div>
+</section>

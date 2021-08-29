@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ page_title }}</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="{{ page_description | escape }}" />
+    <link rel="canonical" href="{{ canonical_url }}" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,shrink-to-fit=no"
+    />
+    {{
+      content_for_header
+    }}
+    <!-- Header hook for plugins -->
+    {{
+      "output.css" | asset_url | stylesheet_tag
+    }}
+    {{
+      "animsition.min.css" | asset_url | stylesheet_tag
+    }}
+  </head>
+  <body>
+    {% section 'header' %} {% if shop.customer_accounts_enabled %} {% if
+    customer %}
+    <a href="/account">account</a>
+    {{ "log out" | customer_logout_link }}
+    {% else %}
+    {{ "log in " | customer_login_link }}
+    {{ "register" | customer_register_link }}
+    {% endif %} {% endif %}
+
+    <main role="main">
+      {{ content_for_layout }}
+    </main>
+    {% section 'footer' %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    {{ "animsition.min.js" | asset_url | script_tag }}
+    <script>
+      $(document).ready(function () {
+        $(".animsition").animsition({
+          inClass: "fade-in-up-sm",
+          outClass: "fade-out-up-sm",
+          inDuration: 1500,
+          outDuration: 800,
+          linkElement: ".animsition-link",
+          // e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
+          loading: true,
+          loadingParentElement: "body", //animsition wrapper element
+          loadingClass: "animsition-loading",
+          loadingInner: "", // e.g '<img src="loading.svg" />'
+          timeout: false,
+          timeoutCountdown: 5000,
+          onLoadEvent: true,
+          browser: ["animation-duration", "-webkit-animation-duration"],
+          // "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+          // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+          overlay: false,
+          overlayClass: "animsition-overlay-slide",
+          overlayParentElement: "body",
+          transition: function (url) {
+            window.location.href = url;
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

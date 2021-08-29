@@ -1,0 +1,122 @@
+<section class="container p-6 mx-auto w-4/5 md:w-1/2">
+  <h1
+    class="
+      font-serif
+      text-4xl
+      font-semibold
+      text-center text-gray-700
+      py-12
+      md:text-5xl
+    "
+  >
+    {{ page.title }}
+  </h1>
+  {% form 'contact' %} {% if form.posted_successfully? %}
+  <p class="font-serif text-xl font-semibold text-center text-gray-700 py-12">
+    お問い合わせありがとうございました
+  </p>
+  {% endif %}
+  {{ form.errors | default_errors }}
+  <div class="flex flex-col mx-auto space-y-6">
+    <div class="flex flex-col space-y-2">
+      <label class="text-gray-600" for="ContactFormName">お名前</label>
+      <input
+        class="
+          shadow
+          appearance-none
+          border
+          rounded
+          w-full
+          py-2
+          px-3
+          text-gray-700
+          leading-tight
+          focus:outline-none focus:shadow-outline
+        "
+        type="text"
+        id="ContactFormName"
+        name="contact[name]"
+      />
+    </div>
+    <div class="flex flex-col space-y-2">
+      <label class="text-gray-600" for="ContactFormEmail">メールアドレス</label>
+      <input
+        class="
+          shadow
+          appearance-none
+          border
+          rounded
+          w-full
+          py-2
+          px-3
+          text-gray-700
+          leading-tight
+          focus:outline-none focus:shadow-outline
+        "
+        type="email"
+        id="ContactFormEmail"
+        name="contact[email]"
+      />
+    </div>
+    <div class="flex flex-col space-y-2">
+      <label class="text-gray-600" for="ContactFormPhone">電話番号</label>
+      <input
+        class="
+          shadow
+          appearance-none
+          border
+          rounded
+          w-full
+          py-2
+          px-3
+          text-gray-700
+          leading-tight
+          focus:outline-none focus:shadow-outline
+        "
+        type="tel"
+        id="ContactFormPhone"
+        name="contact[phone]"
+      />
+    </div>
+    <div class="flex flex-col space-y-2">
+      <label class="text-gray-600" for="ContactFormMessage"
+        >お問い合わせ内容</label
+      >
+      <textarea
+        class="
+          shadow
+          appearance-none
+          border
+          rounded
+          w-full
+          py-2
+          px-3
+          text-gray-700
+          leading-tight
+          focus:outline-none focus:shadow-outline
+        "
+        rows="5"
+        id="ContactFormMessage"
+        name="contact[body]"
+      ></textarea>
+    </div>
+  </div>
+  <input
+    class="
+      w-full
+      bg-gray-700
+      hover:bg-gray-900
+      text-white
+      font-bold
+      py-3
+      px-4
+      mt-16
+      rounded
+      cursor-pointer
+      focus:outline-none focus:shadow-outline
+    "
+    type="submit"
+    value="送信"
+  />
+  {% endform %}
+</section>

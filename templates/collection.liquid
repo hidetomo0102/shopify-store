@@ -1,0 +1,46 @@
+{% paginate collection.products by 4 %}
+<section class="container p-6 mx-auto">
+  <h1
+    class="
+      font-serif
+      text-4xl
+      font-semibold
+      text-center text-gray-700
+      py-12
+      md:text-5xl
+    "
+  >
+    {{ collection.title }}
+  </h1>
+  <div
+    class="grid grid-cols-1 gap-x-2 xl:grid-cols-3 md:grid-cols-2 md:gap-x-6"
+  >
+    {% for product in collection.products %}
+    <div class="mx-auto shadow-md rounded-sm mb-8 hover:shadow-sm">
+      <a href="{{ product.url }}">
+        <img
+          class="rounded-t-md lg:max-w-sm md:max-w-xs"
+          src="{{ product.featured_media.preview_image | img_url: 'master' }}"
+          alt="{{ product.title }}"
+        />
+        <p
+          class="
+            font-serif
+            text-sm text-yellow-900
+            py-2
+            px-1
+            font-semibold
+            md:text-base
+          "
+        >
+          {{ product.title }}
+        </p>
+        <p class="text-gray-700 font-sans text-xs pb-2 px-1 md:text-sm">
+          {{ product.price | money }}
+        </p>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+  {% render 'pagination', paginate: paginate %} {% endpaginate %}
+</section>

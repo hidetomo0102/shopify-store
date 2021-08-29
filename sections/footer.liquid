@@ -1,0 +1,74 @@
+<footer class="bg-gray-100">
+  <div class="mx-auto mt-6 px-8 sm:px-10">
+    <div class="md:flex">
+      <h3 class="text-lg"></h2>
+      <div
+        class="
+          flex flex-col
+          justify-center
+          md:justify-start
+          items-center
+          space-y-4
+          py-6
+          md:space-x-10
+        "
+      >
+        {% for link in linklists.footer.links %}
+        <a
+          href="{{ link.url }}"
+          class="text-sm text-gray-600 hover:text-gray-900"
+        >
+          {{ link.title }}
+        </a>
+        {% endfor %}
+      </div>
+      <div
+        class="
+          flex flex-1
+          justify-center
+          md:justify-end
+          items-center
+          space-x-10
+          py-6
+          md:space-x-8
+        "
+      >
+        {% if section.settings.instagram_link != blank %}
+        <a
+          class="social-icons__link"
+          href="{{ section.settings.instagram_link | escape }}"
+        >
+          <img class="h-8 w-auto" src="{{ "instagram.svg" | asset_url }}"
+          alt="instagram">
+        </a>
+        {% endif %} {% if section.settings.facebook_link != blank %}
+        <a
+          class="social-icons__link"
+          href="{{ section.settings.facebook_link | escape }}"
+        >
+          <img class="h-8 w-auto" src="{{ "facebook-logo.svg" | asset_url }}"
+          alt="facebook">
+        </a>
+        {% endif %} {% if section.settings.twitter_link != blank %}
+        <a
+          class="social-icons__link"
+          href="{{ section.settings.twitter_link | escape }}"
+        >
+          <img class="h-8 w-auto" src="{{ "twitter.svg" | asset_url }}"
+          alt="twitter">
+        </a>
+        {% endif %}
+      </div>
+    </div>
+    <p class="text-center text-base font-medium text-gray-500 pb-6">
+      ©︎ Hidetomo Shimaoka
+    </p>
+  </div>
+</footer>
+
+{% schema %} { "name": "Social Icon", "class": "social-icon", "settings": [ {
+"type": "text", "id": "instagram_link", "label": "Instagram", "info":
+"https:\/\/instagram.com/shopify" }, { "type": "text", "id": "facebook_link",
+"label": "Facebook", "info": "https:\/\/facebook.com/shopify" }, { "type":
+"text", "id": "twitter_link", "label": "Twitter", "info":
+"https:\/\/twitter.com\/shopify" } ] } {% endschema %}

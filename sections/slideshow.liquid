@@ -1,0 +1,77 @@
+<div class="swiper-container mySwiper">
+  <div class="swiper-wrapper">
+    {% for block in section.blocks %}
+    <div class="swiper-slide relative">
+      <img src="{{ block.settings.image | img_url: "master" }}" /> {% assign
+      font = block.settings.title_font %}
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="flex flex-col space-y-4 absolute top-1/4 left-0 right-0 z-10">
+        <h2
+          style="font-family: {{ font.family }};
+               color: {{ block.settings.title_color }};
+               font-weight: {{ font.weight }};"
+          class="text-2xl md:text-6xl mx-auto"
+        >
+          {{ block.settings.title }}
+        </h2>
+        {% if block.settings.button_link %}
+        <a
+          style="font-family: {{ font.family }};"
+          class="
+            animsition-link
+            md:w-48
+            py-1
+            md:py-3
+            px-3
+            md:px-8
+            text-xs
+            md:text-xl
+            bg-gray-800
+            hover:bg-gray-900
+            text-white text-center
+            mx-auto
+          "
+          href="{{ block.settings.button_link }}"
+          >check now</a
+        >
+        {% endif %}
+      </div>
+    </div>
+    <style>
+      {{ font | font_face }}
+    </style>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %} { "name": "スライドショー", "class": "slideshow", "max_blocks": 3,
+"blocks": [ { "type": "image", "name": "スライド", "settings": [ { "type":
+"image_picker", "id": "image", "label": "画像" }, { "type": "url", "id":
+"button_link", "label": "リンク" }, {"type": "text", "id": "title", "label":
+"タイトル"}, {"type": "color", "id": "title_color", "label": "テキストカラー",
+"default": "#ffffff"}, {"type": "font_picker", "id": "title_font", "label":
+"フォント", "default": "helvetica_n4"} ] } ], "presets": [ { "category":
+"Image", "name": "スライドショー" } ] } {% endschema %}
+
+<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+  // swiper
+  var swiper = new Swiper(".mySwiper", {
+    spaceBetween: 30,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    effect: "fade",
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
+</script>

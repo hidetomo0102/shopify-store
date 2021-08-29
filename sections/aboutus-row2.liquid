@@ -1,0 +1,44 @@
+<div class="p-8 mb-4">
+  {% capture media_layout %} {% if section.settings.image != blank %}
+  <img
+    class="w-full md:w-7/12"
+    src="{{ section.settings.image | img_url: 'large' }}"
+    alt="{{ section.settings.image.alt | escape }}"
+  />
+  {% else %}
+  {{ "image" | placeholder_svg_tag: "placeholder-svg" }}
+  {% endif %} {% endcapture %}
+  <div
+    class="
+      flex flex-col
+      md:flex-row
+      space-y-4 space-x-0
+      md:space-x-6 md:space-y-0 md:items-center
+      items-start
+    "
+  >
+    {% if section.settings.layout == 'left' %}
+    {{ media_layout }}
+    {% endif %}
+    <div class="flex flex-col space-y-2 items-start">
+      <h3 class="font-serif text-3xl font-semibold text-gray-700">
+        {{ section.settings.section_title }}
+      </h3>
+      <p class="font-serif text-gray-600">
+        {{ section.settings.section_textarea }}
+      </p>
+    </div>
+    {% if section.settings.layout == 'right' %}
+    {{ media_layout }}
+    {% endif %}
+  </div>
+</div>
+
+{% schema %} { "name": "テキスト付き画像", "class": "aboutus-section",
+"settings": [ { "type": "image_picker", "id": "image", "label": "About Image" },
+{ "type": "select", "id": "layout", "label": "画像レイアウト", "default":
+"left", "options": [ { "value": "left", "label": "左" }, { "value": "right",
+"label": "右" } ] }, { "type": "text", "id": "section_title", "default":
+"Section Title", "label": "section title" }, { "type": "textarea", "id":
+"section_textarea", "default": "sample text", "label": "section textarea" } ] }
+{% endschema %}

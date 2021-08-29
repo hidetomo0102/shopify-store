@@ -1,0 +1,75 @@
+{% if paginate.pages > 1 %}
+<div class="container flex justify-center mx-auto">
+  <ul class="flex">
+    {% if paginate.previous.is_link %}
+    <li>
+      <a href="{{ paginate.previous.url }}">
+        <button
+          class="
+            h-10
+            px-5
+            text-gray-600
+            bg-white
+            border border-gray-600
+            hover:bg-gray-100
+          "
+        >
+          {{ paginate.previous.title }}
+        </button>
+      </a>
+    </li>
+    {% endif %} {% for part in paginate.parts %} {% if part.is_link %}
+    <li>
+      <a href="{{ part.url }}">
+        <button
+          class="
+            h-10
+            px-5
+            text-gray-600
+            bg-white
+            border border-gray-600
+            hover:bg-gray-100
+          "
+        >
+          {{ part.title }}
+        </button>
+      </a>
+    </li>
+    {% else %}
+    <li class="disabled">
+      <a href="{{ part.url }}">
+        <button
+          class="
+            h-10
+            px-5
+            text-gray-600
+            bg-white
+            border border-gray-600
+            hover:bg-gray-100
+          "
+        >
+          {{ part.title }}
+        </button>
+      </a>
+    </li>
+    {% endif %} {% endfor %} {% if paginate.next.is_link %}
+    <li>
+      <a href="{{ paginate.next.url }}">
+        <button
+          class="
+            h-10
+            px-5
+            text-gray-600
+            bg-white
+            border border-gray-600
+            hover:bg-gray-100
+          "
+        >
+          {{ paginate.next.title }}
+        </button>
+      </a>
+    </li>
+    {% endif %}
+  </ul>
+</div>
+{% endif %}

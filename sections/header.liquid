@@ -1,0 +1,225 @@
+<header class="relative bg-white">
+  <div class="mx-auto px-8 sm:px-10">
+    <div
+      class="
+        flex
+        justify-between
+        items-center
+        py-6
+        md:justify-start md:space-x-10
+      "
+    >
+      <div class="flex justify-start">
+        <a href="/"> LOGO </a>
+      </div>
+      <nav class="hidden md:flex space-x-10">
+        {% for link in linklists.main-menu.links %} {% assign child_list_handle
+        = link.title | handleize %} {% if linklists[child_list_handle].links !=
+        blank %}
+        <a
+          class="text-base font-normal text-gray-500 hover:text-gray-900"
+          href="{{ link.url }}"
+          >{{ link.title }}</a
+        >
+        [{% for childlink in linklists[child_list_handle].links %}
+        <a
+          class="text-base font-medium text-gray-500 hover:text-gray-900"
+          href="{{ childlink.url }}"
+          >{{ childlink.title | escape }}</a
+        >
+        {% endfor %}] {% else %}
+        <a
+          class="
+            text-base
+            font-normal
+            text-gray-500
+            hover:text-gray-900
+            animsition-link
+          "
+          data-animsition-out-class="fade-out-right-sm"
+          data-animsition-out-duration="800"
+          href="{{ link.url }}"
+          >{{ link.title }}</a
+        >
+        {% endif %} {% endfor %}
+      </nav>
+      <div class="md:flex items-center justify-end mr-12 md:flex-1 lg:w-0">
+        <a href="/cart">
+          <img class="h-6 w-auto sm:h-6" src="{{
+            "shopping-cart.svg" | asset_url
+          }}" alt="cart">
+        </a>
+        <div id="navArea" class="md:hidden">
+          <nav class="hamburger">
+            <div class="inner">
+              <ul>
+                {% for link in linklists.main-menu.links %} {% assign
+                child_list_handle = link.title | handleize %}
+                <li>
+                  <a
+                    class="text-base font-normal text-white"
+                    href="{{ link.url }}"
+                    >{{ link.title }}</a
+                  >
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </nav>
+          <div class="toggle_btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div id="mask"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    (function ($) {
+      var $nav = $("#navArea");
+      var $btn = $(".toggle_btn");
+      var $mask = $("#mask");
+      var open = "open"; // class
+      // menu open close
+      $btn.on("click", function () {
+        if (!$nav.hasClass(open)) {
+          $nav.addClass(open);
+        } else {
+          $nav.removeClass(open);
+        }
+      });
+      // mask close
+      $mask.on("click", function () {
+        $nav.removeClass(open);
+      });
+    })(jQuery);
+  </script>
+</header>
+
+<style>
+  /*============
+nav
+=============*/
+  .hamburger {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    bottom: 0;
+    width: 300px;
+    background: #ffffff;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transition: all 0.5s;
+    z-index: 3;
+    opacity: 0;
+  }
+  .open nav {
+    left: 0;
+    opacity: 1;
+  }
+  nav .inner {
+    padding: 25px;
+  }
+  nav .inner ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  nav .inner ul li {
+    position: relative;
+    margin: 0;
+    border-bottom: 1px solid #333;
+  }
+  nav .inner ul li a {
+    display: block;
+    color: #333;
+    font-size: 14px;
+    padding: 1em;
+    text-decoration: none;
+    transition-duration: 0.2s;
+  }
+  nav .inner ul li a:hover {
+    background: #e4e4e4;
+  }
+  @media screen and (max-width: 767px) {
+    nav {
+      left: -220px;
+      width: 220px;
+    }
+  }
+  /*============
+.toggle_btn
+=============*/
+  .toggle_btn {
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    transition: all 0.5s;
+    cursor: pointer;
+    z-index: 3;
+  }
+  .toggle_btn span {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: #333;
+    border-radius: 4px;
+    transition: all 0.5s;
+  }
+  .toggle_btn span:nth-child(1) {
+    top: 4px;
+  }
+  .toggle_btn span:nth-child(2) {
+    top: 14px;
+  }
+  .toggle_btn span:nth-child(3) {
+    bottom: 4px;
+  }
+  .open .toggle_btn span {
+    background-color: #fff;
+  }
+  .open .toggle_btn span:nth-child(1) {
+    -webkit-transform: translateY(10px) rotate(-315deg);
+    transform: translateY(10px) rotate(-315deg);
+  }
+  .open .toggle_btn span:nth-child(2) {
+    opacity: 0;
+  }
+  .open .toggle_btn span:nth-child(3) {
+    -webkit-transform: translateY(-10px) rotate(315deg);
+    transform: translateY(-10px) rotate(315deg);
+  }
+  /*============
+#mask
+=============*/
+  #mask {
+    display: none;
+    transition: all 0.5s;
+  }
+  .open #mask {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.8;
+    z-index: 2;
+    cursor: pointer;
+  }
+</style>
