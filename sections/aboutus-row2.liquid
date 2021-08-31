@@ -9,7 +9,7 @@
   {{ "image" | placeholder_svg_tag: "placeholder-svg" }}
   {% endif %} {% endcapture %}
   <div
-    {% if settings.layout == 'left' %}
+    {% if section.settings.layout == 'left' %}
     class="
       flex flex-col
       md:flex-row
