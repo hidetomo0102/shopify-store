@@ -82,9 +82,10 @@
       "aboutus-row2": {
         "type": "aboutus-row2",
         "settings": {
+          "image": "shopify:\/\/shop_images\/dhaya-eddine-bentaleb-iYcpcQmjS2A-unsplash.jpg",
           "layout": "left",
-          "section_title": "Section Title",
-          "section_textarea": "sample text"
+          "section_title": "あらゆるシーンに合った品揃え",
+          "section_textarea": "ビジネスからカジュアルまで、あらゆる生活空間へ適した時計を厳選しています。"
         }
       },
       "aboutus-row3": {
