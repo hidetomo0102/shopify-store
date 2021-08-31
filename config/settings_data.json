@@ -36,11 +36,22 @@
               "title_color": "#13224d",
               "title_font": "neuton_i4"
             }
+          },
+          "657fdb03-4f7f-425d-b38d-395168d89ad2": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/allef-vinicius-BqNEe_ZAtxg-unsplash.jpg",
+              "button_link": "",
+              "title": "",
+              "title_color": "#ffffff",
+              "title_font": "helvetica_n4"
+            }
           }
         },
         "block_order": [
           "00640e4d-68bd-45a5-93f3-bbb874654c74",
-          "e2237212-19a5-4eb9-98aa-1a029ff14cbf"
+          "e2237212-19a5-4eb9-98aa-1a029ff14cbf",
+          "657fdb03-4f7f-425d-b38d-395168d89ad2"
         ],
         "settings": {
         }
