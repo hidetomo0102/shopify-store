@@ -91,9 +91,10 @@
       "aboutus-row3": {
         "type": "aboutus-row3",
         "settings": {
+          "image": "shopify:\/\/shop_images\/alvin-mahmudov-oBT4lJvNMQg-unsplash.jpg",
           "layout": "left",
-          "section_title": "Section Title",
-          "section_textarea": "sample text"
+          "section_title": "購入後もサポート",
+          "section_textarea": "ご購入して30日以内であれば、完全返金保証のサポートが受けられます。"
         }
       }
     },
