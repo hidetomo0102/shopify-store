@@ -26,10 +26,21 @@
               "title_color": "#ffffff",
               "title_font": "tinos_i4"
             }
+          },
+          "e2237212-19a5-4eb9-98aa-1a029ff14cbf": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/alvin-mahmudov-oBT4lJvNMQg-unsplash.jpg",
+              "button_link": "shopify:\/\/collections\/mens-watch",
+              "title": "Men's 50% off",
+              "title_color": "#13224d",
+              "title_font": "neuton_i4"
+            }
           }
         },
         "block_order": [
-          "00640e4d-68bd-45a5-93f3-bbb874654c74"
+          "00640e4d-68bd-45a5-93f3-bbb874654c74",
+          "e2237212-19a5-4eb9-98aa-1a029ff14cbf"
         ],
         "settings": {
         }
