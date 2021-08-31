@@ -9,7 +9,7 @@
       "footer": {
         "type": "footer",
         "settings": {
-          "instagram_link": "",
+          "instagram_link": "https:\/\/instagram.com\/shopify",
           "facebook_link": "https:\/\/facebook.com\/shopify",
           "twitter_link": "https:\/\/twitter.com\/shopify"
         }
@@ -55,10 +55,18 @@
         ],
         "settings": {
         }
+      },
+      "163038388168dbc382": {
+        "type": "featured-collection",
+        "settings": {
+          "featured_collection": "frontpage",
+          "title": "Featured Items"
+        }
       }
     },
     "content_for_index": [
-      "1630383875b2e585ca"
+      "1630383875b2e585ca",
+      "163038388168dbc382"
     ]
   },
   "presets": {
