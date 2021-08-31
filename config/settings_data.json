@@ -1,6 +1,46 @@
 {
-  "current": "Default",
+  "current": {
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "instagram_link": "",
+          "facebook_link": "",
+          "twitter_link": ""
+        }
+      },
+      "1630383875b2e585ca": {
+        "type": "slideshow",
+        "blocks": {
+          "00640e4d-68bd-45a5-93f3-bbb874654c74": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/fabian-heimann-4R_WEmhx8og-unsplash.jpg",
+              "button_link": "shopify:\/\/collections\/frontpage",
+              "title": "New Featured Item",
+              "title_color": "#ffffff",
+              "title_font": "tinos_i4"
+            }
+          }
+        },
+        "block_order": [
+          "00640e4d-68bd-45a5-93f3-bbb874654c74"
+        ],
+        "settings": {
+        }
+      }
+    },
+    "content_for_index": [
+      "1630383875b2e585ca"
+    ]
+  },
   "presets": {
-    "Default": { }
+    "Default": {
+    }
   }
 }
