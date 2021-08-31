@@ -69,6 +69,31 @@
           "featured_blog": "ニュース",
           "title": "Featued Blog"
         }
+      },
+      "aboutus-row": {
+        "type": "aboutus-row",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/angelina-litvin-xTJ4ZtPD__8-unsplash.jpg",
+          "layout": "left",
+          "section_title": "ライフスタイルに彩りを",
+          "section_textarea": "私たちが選ぶコレクションは、『お客様のライフスタイルを彩るものへ』をモットーとしています。"
+        }
+      },
+      "aboutus-row2": {
+        "type": "aboutus-row2",
+        "settings": {
+          "layout": "left",
+          "section_title": "Section Title",
+          "section_textarea": "sample text"
+        }
+      },
+      "aboutus-row3": {
+        "type": "aboutus-row3",
+        "settings": {
+          "layout": "left",
+          "section_title": "Section Title",
+          "section_textarea": "sample text"
+        }
       }
     },
     "content_for_index": [
