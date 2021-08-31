@@ -62,11 +62,19 @@
           "featured_collection": "frontpage",
           "title": "Featured Items"
         }
+      },
+      "1630384095424ca77a": {
+        "type": "featured-blog",
+        "settings": {
+          "featured_blog": "ニュース",
+          "title": "Featued Blog"
+        }
       }
     },
     "content_for_index": [
       "1630383875b2e585ca",
-      "163038388168dbc382"
+      "163038388168dbc382",
+      "1630384095424ca77a"
     ]
   },
   "presets": {
