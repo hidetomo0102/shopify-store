@@ -9,8 +9,13 @@
         md:justify-start md:space-x-10
       "
     >
-      <div class="flex justify-start">
-        <a href="/"> LOGO </a>
+      <div class="flex mt-2 justify-start">
+        <a href="/"
+          ><img
+            class="w-12 md:w-16"
+            src="{{ section.settings.logo | img_url: 'master' }}"
+            alt=""
+        /></a>
       </div>
       <nav class="hidden md:flex space-x-10">
         {% for link in linklists.main-menu.links %} {% assign child_list_handle
@@ -223,3 +228,7 @@ nav
     cursor: pointer;
   }
 </style>
+
+{% schema %} { "name": "Top Logo", "class": "top-logo", "settings": [ { "type":
+"image_picker", "id": "logo", "label": "Top Logo" } ], "presets": [ {
+"category": "Image", "name": "Top Logo" } ] } {% endschema %}
