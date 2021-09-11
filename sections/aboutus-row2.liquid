@@ -2,7 +2,7 @@
   {% capture media_layout %} {% if section.settings.image != blank %}
   <img
     class="w-full md:w-7/12"
-    src="{{ section.settings.image | img_url: 'large' }}"
+    src="{{ section.settings.image | img_url: 'master' }}"
     alt="{{ section.settings.image.alt | escape }}"
   />
   {% else %}
